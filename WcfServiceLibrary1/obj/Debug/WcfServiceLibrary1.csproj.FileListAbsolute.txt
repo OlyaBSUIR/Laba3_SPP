@@ -1,0 +1,7 @@
+C:\Users\Оля\Desktop\WcfServiceLibrary1\WcfServiceLibrary1\bin\Debug\WcfServiceLibrary1.exe.config
+C:\Users\Оля\Desktop\WcfServiceLibrary1\WcfServiceLibrary1\bin\Debug\WcfServiceLibrary1.exe
+C:\Users\Оля\Desktop\WcfServiceLibrary1\WcfServiceLibrary1\bin\Debug\WcfServiceLibrary1.pdb
+C:\Users\Оля\Desktop\WcfServiceLibrary1\WcfServiceLibrary1\bin\Debug\HtmlAgilityPack.dll
+C:\Users\Оля\Desktop\WcfServiceLibrary1\WcfServiceLibrary1\obj\Debug\WcfServiceLibrary1.exe
+C:\Users\Оля\Desktop\WcfServiceLibrary1\WcfServiceLibrary1\obj\Debug\WcfServiceLibrary1.pdb
+C:\Users\Оля\Desktop\WcfServiceLibrary1\WcfServiceLibrary1\obj\Debug\WcfServiceLibrary1.csprojResolveAssemblyReference.cache
