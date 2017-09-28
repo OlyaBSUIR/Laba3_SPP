@@ -15,6 +15,8 @@ namespace WcfServiceLibrary1
     {
         [OperationContract]
         Task<WheatherInfo> GetWhetherInfo(string city);
+        [OperationContract]
+        Task<string> GetWhetherInfoSerialized(string city);
     }
 
 }
