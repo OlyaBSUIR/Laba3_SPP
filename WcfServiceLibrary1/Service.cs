@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Mail;
+using System.Net.Mime;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
@@ -165,31 +166,15 @@ namespace WcfServiceLibrary1
         static void Main()
         {
             var host = new ServiceHost(typeof(WheatherService));
+            // SendEmailAsync().GetAwaiter();
             host.Open();
             Console.WriteLine("Press ENTER to stop the service");
             Console.ReadLine();
         }
 
-   /*     static void Main(string[] args)
-        {
 
-            SendEmailAsync().GetAwaiter();
-            Console.Read();
-        }
-
-        private static async Task SendEmailAsync()
-        {
-            MailAddress from = new MailAddress("somemail@gmail.com", "Tom");
-            MailAddress to = new MailAddress("somemail@yandex.ru");
-            MailMessage m = new MailMessage(from, to);
-            m.Subject = "Тест";
-            m.Body = "Письмо-тест 2 работы smtp-клиента";
-            SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
-            smtp.Credentials = new NetworkCredential("somemail@gmail.com", "mypassword");
-            smtp.EnableSsl = true;
-            await smtp.SendMailAsync(m);
-            Console.WriteLine("Письмо отправлено");
-        }
-        */
     }
-}
+        }
+        
+    
+

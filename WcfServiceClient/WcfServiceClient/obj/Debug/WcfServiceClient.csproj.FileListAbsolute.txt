@@ -1,0 +1,8 @@
+C:\Users\Оля\Desktop\WcfApplication\WcfServiceClient\WcfServiceClient\bin\Debug\WcfServiceClient.exe.config
+C:\Users\Оля\Desktop\WcfApplication\WcfServiceClient\WcfServiceClient\bin\Debug\WcfServiceClient.exe
+C:\Users\Оля\Desktop\WcfApplication\WcfServiceClient\WcfServiceClient\bin\Debug\WcfServiceClient.pdb
+C:\Users\Оля\Desktop\WcfApplication\WcfServiceClient\WcfServiceClient\obj\Debug\WcfServiceClient.exe
+C:\Users\Оля\Desktop\WcfApplication\WcfServiceClient\WcfServiceClient\obj\Debug\WcfServiceClient.pdb
+C:\Users\Оля\Desktop\WcfApplication\WcfServiceClient\WcfServiceClient\obj\Debug\WcfServiceClient.frmMain.resources
+C:\Users\Оля\Desktop\WcfApplication\WcfServiceClient\WcfServiceClient\obj\Debug\WcfServiceClient.csproj.GenerateResource.Cache
+C:\Users\Оля\Desktop\WcfApplication\WcfServiceClient\WcfServiceClient\obj\Debug\WcfServiceClient.csprojResolveAssemblyReference.cache
