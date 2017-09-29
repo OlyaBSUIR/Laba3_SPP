@@ -69,7 +69,7 @@ namespace WcfServiceClient
 
         private void cbCities_SelectedIndexChanged(object sender, EventArgs e)
         {
-           // InvokeAsyncMethod();
+           InvokeAsyncMethod();
         }
 
         private void btnMatch_Click(object sender, EventArgs e)
@@ -82,13 +82,13 @@ namespace WcfServiceClient
             {
                 MessageBox.Show(ex.ToString());
             }
-          //  InvokeAsyncMethod();
+          InvokeAsyncMethod();
             
         }
 
         private void timer_Tick(object sender, EventArgs e)
         {
-           //InvokeAsyncMethod();
+           InvokeAsyncMethod();
      
         }
     }

@@ -166,11 +166,44 @@ namespace WcfServiceLibrary1
         static void Main()
         {
             var host = new ServiceHost(typeof(WheatherService));
-            // SendEmailAsync().GetAwaiter();
+           // SendEmailAsync().GetAwaiter();
             host.Open();
             Console.WriteLine("Press ENTER to stop the service");
             Console.ReadLine();
         }
+
+
+        public async void SendEmailAsync()
+        {
+
+
+ 
+      string SendersAddress = "olencka11@yandex.ru";
+
+      string ReceiversAddress = "sichnenkoolga@gmail.com";
+
+      const string SendersPassword = "sichnenkoolay1998";
+
+      const string subject = "Testing";
+
+      const string body = "Hi This Is my Mail From Gmail";
+
+        SmtpClient smtp = new SmtpClient
+        {
+           Host = "smtp.yandex.ru ",
+           Port = 25,
+           EnableSsl = true,
+           DeliveryMethod = SmtpDeliveryMethod.Network,
+           Credentials    = new NetworkCredential(SendersAddress, SendersPassword),
+           Timeout = 3000
+        };
+
+
+
+        MailMessage message = new MailMessage(SendersAddress, ReceiversAddress, subject, body);
+
+        await smtp.SendMailAsync(message);
+     }
 
 
     }

@@ -128,7 +128,7 @@
             // btnMatch
             // 
             this.btnMatch.Font = new System.Drawing.Font("Monotype Corsiva", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnMatch.Location = new System.Drawing.Point(224, 289);
+            this.btnMatch.Location = new System.Drawing.Point(203, 273);
             this.btnMatch.Name = "btnMatch";
             this.btnMatch.Size = new System.Drawing.Size(75, 23);
             this.btnMatch.TabIndex = 12;
