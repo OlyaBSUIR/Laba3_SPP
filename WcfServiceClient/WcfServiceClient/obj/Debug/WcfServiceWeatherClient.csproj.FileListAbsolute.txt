@@ -1,0 +1,7 @@
+C:\Users\Оля\Desktop\WcfServiceLibrary1\WcfServiceClient\WcfServiceClient\obj\Debug\WcfServiceWeatherClient.csproj.GenerateResource.Cache
+C:\Users\Оля\Desktop\WcfServiceLibrary1\WcfServiceClient\WcfServiceClient\obj\Debug\WcfServiceClient.exe
+C:\Users\Оля\Desktop\WcfServiceLibrary1\WcfServiceClient\WcfServiceClient\obj\Debug\WcfServiceClient.pdb
+C:\Users\Оля\Desktop\WcfServiceLibrary1\WcfServiceClient\WcfServiceClient\bin\Debug\WcfServiceClient.exe.config
+C:\Users\Оля\Desktop\WcfServiceLibrary1\WcfServiceClient\WcfServiceClient\bin\Debug\WcfServiceClient.exe
+C:\Users\Оля\Desktop\WcfServiceLibrary1\WcfServiceClient\WcfServiceClient\bin\Debug\WcfServiceClient.pdb
+C:\Users\Оля\Desktop\WcfServiceLibrary1\WcfServiceClient\WcfServiceClient\obj\Debug\WcfServiceClient.frmMain.resources

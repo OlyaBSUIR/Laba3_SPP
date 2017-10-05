@@ -6,10 +6,9 @@ using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WcfServiceLibrary1
+namespace WcfService
 {
-    [ServiceContract(Name = "WhetherService",
-        Namespace = "http://www.mycompany.com/whether/2010/05/24")]
+    [ServiceContract(Name = "WeatherService", Namespace = "http://www.mycompany.com/weather")]
 
     public interface IWheatherService
     {
@@ -18,7 +17,7 @@ namespace WcfServiceLibrary1
         [OperationContract]
         Task<string> GetWhetherInfoSerialized(string city);
         [OperationContract]
-        void SendEmailAsync();
+        void SendEmailAsync(string city, string receiversAddress);
     }
 
 }

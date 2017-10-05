@@ -15,7 +15,7 @@ namespace WcfServiceClient.ServiceReference1 {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="WheatherInfo", Namespace="http://schemas.datacontract.org/2004/07/WcfServiceLibrary1")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="WheatherInfo", Namespace="http://schemas.datacontract.org/2004/07/WcfService")]
     [System.SerializableAttribute()]
     public partial class WheatherInfo : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
@@ -123,60 +123,52 @@ namespace WcfServiceClient.ServiceReference1 {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(Namespace="http://www.mycompany.com/whether/2010/05/24", ConfigurationName="ServiceReference1.WhetherService")]
-    public interface WhetherService {
+    [System.ServiceModel.ServiceContractAttribute(Namespace="http://www.mycompany.com/weather", ConfigurationName="ServiceReference1.WeatherService")]
+    public interface WeatherService {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://www.mycompany.com/whether/2010/05/24/WhetherService/GetWhetherInfo", ReplyAction="http://www.mycompany.com/whether/2010/05/24/WhetherService/GetWhetherInfoResponse" +
-            "")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://www.mycompany.com/weather/WeatherService/GetWhetherInfo", ReplyAction="http://www.mycompany.com/weather/WeatherService/GetWhetherInfoResponse")]
         WcfServiceClient.ServiceReference1.WheatherInfo GetWhetherInfo(string city);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://www.mycompany.com/whether/2010/05/24/WhetherService/GetWhetherInfo", ReplyAction="http://www.mycompany.com/whether/2010/05/24/WhetherService/GetWhetherInfoResponse" +
-            "")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://www.mycompany.com/weather/WeatherService/GetWhetherInfo", ReplyAction="http://www.mycompany.com/weather/WeatherService/GetWhetherInfoResponse")]
         System.Threading.Tasks.Task<WcfServiceClient.ServiceReference1.WheatherInfo> GetWhetherInfoAsync(string city);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://www.mycompany.com/whether/2010/05/24/WhetherService/GetWhetherInfoSerializ" +
-            "ed", ReplyAction="http://www.mycompany.com/whether/2010/05/24/WhetherService/GetWhetherInfoSerializ" +
-            "edResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://www.mycompany.com/weather/WeatherService/GetWhetherInfoSerialized", ReplyAction="http://www.mycompany.com/weather/WeatherService/GetWhetherInfoSerializedResponse")]
         string GetWhetherInfoSerialized(string city);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://www.mycompany.com/whether/2010/05/24/WhetherService/GetWhetherInfoSerializ" +
-            "ed", ReplyAction="http://www.mycompany.com/whether/2010/05/24/WhetherService/GetWhetherInfoSerializ" +
-            "edResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://www.mycompany.com/weather/WeatherService/GetWhetherInfoSerialized", ReplyAction="http://www.mycompany.com/weather/WeatherService/GetWhetherInfoSerializedResponse")]
         System.Threading.Tasks.Task<string> GetWhetherInfoSerializedAsync(string city);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://www.mycompany.com/whether/2010/05/24/WhetherService/SendEmailAsync", ReplyAction="http://www.mycompany.com/whether/2010/05/24/WhetherService/SendEmailAsyncResponse" +
-            "")]
-        void SendEmailAsync();
+        [System.ServiceModel.OperationContractAttribute(Action="http://www.mycompany.com/weather/WeatherService/SendEmailAsync", ReplyAction="http://www.mycompany.com/weather/WeatherService/SendEmailAsyncResponse")]
+        void SendEmailAsync(string city, string receiversAddress);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://www.mycompany.com/whether/2010/05/24/WhetherService/SendEmailAsync", ReplyAction="http://www.mycompany.com/whether/2010/05/24/WhetherService/SendEmailAsyncResponse" +
-            "")]
-        System.Threading.Tasks.Task SendEmailAsyncAsync();
+        [System.ServiceModel.OperationContractAttribute(Action="http://www.mycompany.com/weather/WeatherService/SendEmailAsync", ReplyAction="http://www.mycompany.com/weather/WeatherService/SendEmailAsyncResponse")]
+        System.Threading.Tasks.Task SendEmailAsyncAsync(string city, string receiversAddress);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface WhetherServiceChannel : WcfServiceClient.ServiceReference1.WhetherService, System.ServiceModel.IClientChannel {
+    public interface WeatherServiceChannel : WcfServiceClient.ServiceReference1.WeatherService, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class WhetherServiceClient : System.ServiceModel.ClientBase<WcfServiceClient.ServiceReference1.WhetherService>, WcfServiceClient.ServiceReference1.WhetherService {
+    public partial class WeatherServiceClient : System.ServiceModel.ClientBase<WcfServiceClient.ServiceReference1.WeatherService>, WcfServiceClient.ServiceReference1.WeatherService {
         
-        public WhetherServiceClient() {
+        public WeatherServiceClient() {
         }
         
-        public WhetherServiceClient(string endpointConfigurationName) : 
+        public WeatherServiceClient(string endpointConfigurationName) : 
                 base(endpointConfigurationName) {
         }
         
-        public WhetherServiceClient(string endpointConfigurationName, string remoteAddress) : 
+        public WeatherServiceClient(string endpointConfigurationName, string remoteAddress) : 
                 base(endpointConfigurationName, remoteAddress) {
         }
         
-        public WhetherServiceClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+        public WeatherServiceClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(endpointConfigurationName, remoteAddress) {
         }
         
-        public WhetherServiceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+        public WeatherServiceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
         }
         
@@ -196,12 +188,12 @@ namespace WcfServiceClient.ServiceReference1 {
             return base.Channel.GetWhetherInfoSerializedAsync(city);
         }
         
-        public void SendEmailAsync() {
-            base.Channel.SendEmailAsync();
+        public void SendEmailAsync(string city, string receiversAddress) {
+            base.Channel.SendEmailAsync(city, receiversAddress);
         }
         
-        public System.Threading.Tasks.Task SendEmailAsyncAsync() {
-            return base.Channel.SendEmailAsyncAsync();
+        public System.Threading.Tasks.Task SendEmailAsyncAsync(string city, string receiversAddress) {
+            return base.Channel.SendEmailAsyncAsync(city, receiversAddress);
         }
     }
 }

@@ -33,12 +33,13 @@
             this.lbHumadity = new System.Windows.Forms.Label();
             this.lbSpeed = new System.Windows.Forms.Label();
             this.lbTemperature = new System.Windows.Forms.Label();
-            this.lbData = new System.Windows.Forms.Label();
             this.lbPressure = new System.Windows.Forms.Label();
             this.cbCities = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnMatch = new System.Windows.Forms.Button();
             this.timer = new System.Windows.Forms.Timer(this.components);
+            this.tbMail = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lbTime
@@ -80,16 +81,6 @@
             this.lbTemperature.TabIndex = 17;
             this.lbTemperature.Text = "Сейчас:";
             // 
-            // lbData
-            // 
-            this.lbData.AutoSize = true;
-            this.lbData.Font = new System.Drawing.Font("Monotype Corsiva", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lbData.Location = new System.Drawing.Point(33, 219);
-            this.lbData.Name = "lbData";
-            this.lbData.Size = new System.Drawing.Size(105, 25);
-            this.lbData.TabIndex = 16;
-            this.lbData.Text = "Данные на:";
-            // 
             // lbPressure
             // 
             this.lbPressure.AutoSize = true;
@@ -128,7 +119,7 @@
             // btnMatch
             // 
             this.btnMatch.Font = new System.Drawing.Font("Monotype Corsiva", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnMatch.Location = new System.Drawing.Point(203, 273);
+            this.btnMatch.Location = new System.Drawing.Point(255, 328);
             this.btnMatch.Name = "btnMatch";
             this.btnMatch.Size = new System.Drawing.Size(75, 23);
             this.btnMatch.TabIndex = 12;
@@ -138,19 +129,37 @@
             // 
             // timer
             // 
-            this.timer.Interval = 2000;
+            this.timer.Interval = 10000;
             this.timer.Tick += new System.EventHandler(this.timer_Tick);
+            // 
+            // tbMail
+            // 
+            this.tbMail.Location = new System.Drawing.Point(38, 328);
+            this.tbMail.Name = "tbMail";
+            this.tbMail.Size = new System.Drawing.Size(191, 20);
+            this.tbMail.TabIndex = 21;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Monotype Corsiva", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label2.Location = new System.Drawing.Point(33, 300);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(316, 25);
+            this.label2.TabIndex = 22;
+            this.label2.Text = "Отправить данные о погоде на почту:";
             // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(499, 335);
+            this.ClientSize = new System.Drawing.Size(582, 378);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.tbMail);
             this.Controls.Add(this.lbTime);
             this.Controls.Add(this.lbHumadity);
             this.Controls.Add(this.lbSpeed);
             this.Controls.Add(this.lbTemperature);
-            this.Controls.Add(this.lbData);
             this.Controls.Add(this.lbPressure);
             this.Controls.Add(this.cbCities);
             this.Controls.Add(this.label1);
@@ -169,11 +178,12 @@
         private System.Windows.Forms.Label lbHumadity;
         private System.Windows.Forms.Label lbSpeed;
         private System.Windows.Forms.Label lbTemperature;
-        private System.Windows.Forms.Label lbData;
         private System.Windows.Forms.Label lbPressure;
         private System.Windows.Forms.ComboBox cbCities;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnMatch;
         private System.Windows.Forms.Timer timer;
+        private System.Windows.Forms.TextBox tbMail;
+        private System.Windows.Forms.Label label2;
     }
 }

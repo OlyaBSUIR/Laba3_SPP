@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:tns="http://www.mycompany.com/whether/2010/05/24" elementFormDefault="qualified" targetNamespace="http://www.mycompany.com/whether/2010/05/24" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="http://localhost:8731/Design_Time_Addresses/WcfServiceLibrary1/WheatherService/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/WcfServiceLibrary1" />
+<xs:schema xmlns:tns="http://www.mycompany.com/weather" elementFormDefault="qualified" targetNamespace="http://www.mycompany.com/weather" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:8731/Design_Time_Addresses/WcfServiceLibrary1/WheatherService/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/WcfService" />
   <xs:element name="GetWhetherInfo">
     <xs:complexType>
       <xs:sequence>
@@ -11,7 +11,7 @@
   <xs:element name="GetWhetherInfoResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/WcfServiceLibrary1" minOccurs="0" name="GetWhetherInfoResult" nillable="true" type="q1:WheatherInfo" />
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/WcfService" minOccurs="0" name="GetWhetherInfoResult" nillable="true" type="q1:WheatherInfo" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -31,7 +31,10 @@
   </xs:element>
   <xs:element name="SendEmailAsync">
     <xs:complexType>
-      <xs:sequence />
+      <xs:sequence>
+        <xs:element minOccurs="0" name="city" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="receiversAddress" nillable="true" type="xs:string" />
+      </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="SendEmailAsyncResponse">

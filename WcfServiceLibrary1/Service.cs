@@ -13,7 +13,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Xml;
 
-namespace WcfServiceLibrary1
+namespace WcfService
 {
     [ServiceBehavior(
         InstanceContextMode = InstanceContextMode.PerCall,
@@ -25,19 +25,8 @@ namespace WcfServiceLibrary1
         private string city;
         private string html;
         private HtmlDocument doc;
-        private HtmlNode bodyNode;
-        private HtmlNodeCollection collection;
 
-        private void InitializationOfCollectionNode()
-        {
-            doc = new HtmlAgilityPack.HtmlDocument();
-            doc.LoadHtml(html);
-            bodyNode = doc.DocumentNode.SelectSingleNode("//span[@class='current-weather__col current-weather__info']");
-            doc.LoadHtml(bodyNode.InnerHtml);
-            collection = doc.DocumentNode.SelectNodes("//div");
-        }
-
-        private async Task Initialization()
+        private async Task<bool> Initialization()
         {
             try
             {
@@ -46,76 +35,44 @@ namespace WcfServiceLibrary1
                 HttpWebResponse myHttpWebResponse = (HttpWebResponse)await task;
                 StreamReader myStreamReader = new StreamReader(myHttpWebResponse.GetResponseStream());
                 html = myStreamReader.ReadToEnd();
-                //InitializationOfCollectionNode();
-
-                Thread thread = new Thread(InitializationOfCollectionNode);
-                thread.Start();
-                thread.Join();
+                doc = new HtmlAgilityPack.HtmlDocument();
+                doc.LoadHtml(html);
+        
+                return true;
             }
             catch (Exception)
             {
+                return false;
                 throw new Exception("Ошибка инициализации:(");
             }
-
         }
+
         private string GetTemperature()
         {
-            HtmlDocument doc = new HtmlAgilityPack.HtmlDocument();
-            doc.LoadHtml(html);
-            HtmlNode bodyNode = doc.DocumentNode.SelectSingleNode("//div[@class='current-weather__thermometer current-weather__thermometer_type_now']");
-            return bodyNode.InnerText.Remove(3, 1);
+            HtmlNode bodyNode = doc.DocumentNode.SelectSingleNode("//span[@class='temp__value']");
+            return bodyNode.InnerText;
         }
 
         private string GetSpeed()
         {
-
-            if (collection != null)
-            {
-                return collection[1].InnerText;
-            }
-            else throw new Exception("Не удалось получить данные:(");
-
+            HtmlNode bodyNode = doc.DocumentNode.SelectSingleNode("//dl[@class='term term_orient_v fact__wind-speed']");
+            return bodyNode.InnerText.Insert(5,": ");
         }
 
         private string GetPressure()
         {
-
-            if (collection != null)
-            {
-                return collection[3].InnerText;
-            }
-            else throw new Exception("Не удалось получить данные:(");
-        }
-
-        private string GetData()
-        {
-
-            if (collection != null)
-            {
-                return collection[4].InnerText;
-            }
-            else throw new Exception("Не удалось получить данные:(");
+            HtmlNode bodyNode = doc.DocumentNode.SelectSingleNode("//dl[@class='term term_orient_v fact__pressure']");
+            return bodyNode.InnerText.Insert(8,": ");
         }
 
         private string GetHumadity()
         {
-
-            if (collection != null)
-            {
-                return collection[2].InnerText;
-            }
-            else throw new Exception("Не удалось получить данные:(");
+            HtmlNode bodyNode = doc.DocumentNode.SelectSingleNode("//dl[@class='term term_orient_v fact__humidity']");
+            return bodyNode.InnerText.Insert(9,": ");
         }
-
-        private WheatherService()
-        {
-
-        }
-
 
         public async Task<WheatherInfo> GetWhetherInfo(string city)
         {
-            //Console.WriteLine("Last location: {0}", LastLocation);
             this.city = city;
             url += city;
             WheatherInfo result = new WheatherInfo();
@@ -125,89 +82,72 @@ namespace WcfServiceLibrary1
             result.speed = GetSpeed();
             result.humadity = GetHumadity();
             result.pressure = GetPressure();
-            result.lastUpdate = GetData();
-
+       
             return result;
         }
 
         public async Task<string> GetWhetherInfoSerialized(string city)
         {
-            //Console.WriteLine("Last location: {0}", LastLocation);
             this.city = city;
             url += city;
             WheatherInfo result = new WheatherInfo();
-            await Initialization();
-
-            result.temperature = "Сейчас: " + GetTemperature();
-            result.speed = GetSpeed();
-            result.humadity = GetHumadity();
-            result.pressure = GetPressure();
-            result.lastUpdate = GetData();
-            string str;
-            using (var output = new StringWriter())
+            if (await Initialization())
             {
-
-                using (var writer = new XmlTextWriter(output) { Formatting = Formatting.Indented })
+                result.temperature = GetTemperature();
+                result.speed = GetSpeed();
+                result.humadity = GetHumadity();
+                result.pressure = GetPressure();
+                string resultStr;
+                using (var output = new StringWriter())
                 {
-
-                    var dataContractSerializer = new DataContractSerializer(typeof(WheatherInfo));
-
-                    dataContractSerializer.WriteObject(writer, result);
-
-                    str = output.GetStringBuilder().ToString();
-
+                    using (var writer = new XmlTextWriter(output) { Formatting = Formatting.Indented })
+                    {
+                        var dataContractSerializer = new DataContractSerializer(typeof(WheatherInfo));
+                        dataContractSerializer.WriteObject(writer, result);
+                        resultStr = output.GetStringBuilder().ToString();
+                    }
                 }
-
+                return resultStr;
             }
-
-            return str;
+            return null;
         }
 
         static void Main()
         {
             var host = new ServiceHost(typeof(WheatherService));
-           // SendEmailAsync().GetAwaiter();
             host.Open();
-            Console.WriteLine("Press ENTER to stop the service");
-            Console.ReadLine();
+            host.Close();
         }
 
-
-        public async void SendEmailAsync()
+        public async void SendEmailAsync(string city, string receiversAddress)
         {
+            string sendersAddress = "olencka11@yandex.ru";
+            receiversAddress = "sichnenkoolga@gmail.com";
+            const string sendersPassword = "sichnenkoolay1998";
+            const string subject = "WeatherInfo";
+            var result = await GetWhetherInfo(city);
+            string body = "Здравствуйте!" + Environment.NewLine;
+            body += "В " + city + " " + result.temperature + Environment.NewLine;
+            body += result.speed + Environment.NewLine;
+            body += result.pressure + Environment.NewLine;
+            body += result.humadity + Environment.NewLine;
+            body += result.lastUpdate;
+            SmtpClient smtp = new SmtpClient
+            {
+                Host = "smtp.yandex.ru ",
+                Port = 25,
+                EnableSsl = true,
+                DeliveryMethod = SmtpDeliveryMethod.Network,
+                Credentials = new NetworkCredential(sendersAddress, sendersPassword),
+                Timeout = 3000
+            };
 
-
- 
-      string SendersAddress = "olencka11@yandex.ru";
-
-      string ReceiversAddress = "sichnenkoolga@gmail.com";
-
-      const string SendersPassword = "sichnenkoolay1998";
-
-      const string subject = "Testing";
-
-      const string body = "Hi This Is my Mail From Gmail";
-
-        SmtpClient smtp = new SmtpClient
-        {
-           Host = "smtp.yandex.ru ",
-           Port = 25,
-           EnableSsl = true,
-           DeliveryMethod = SmtpDeliveryMethod.Network,
-           Credentials    = new NetworkCredential(SendersAddress, SendersPassword),
-           Timeout = 3000
-        };
-
-
-
-        MailMessage message = new MailMessage(SendersAddress, ReceiversAddress, subject, body);
-
-        await smtp.SendMailAsync(message);
-     }
-
+            MailMessage message = new MailMessage(sendersAddress, receiversAddress, subject, body);
+            await smtp.SendMailAsync(message);
+        }
 
     }
-        }
-        
-    
+}
+
+
 

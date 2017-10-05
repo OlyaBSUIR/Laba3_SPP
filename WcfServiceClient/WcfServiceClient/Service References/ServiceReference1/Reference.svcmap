@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="b24a0f26-95c1-44a1-8964-7129ec268798" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="2a23a907-61e7-4f71-9aa1-2c9d0bde3cc2" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -22,12 +22,12 @@
     <MetadataSource Address="http://localhost:8731/Design_Time_Addresses/WcfServiceLibrary1/WheatherService/" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="item.xsd" MetadataType="Schema" ID="765528bf-dec7-4b00-8afe-ca130167c9e8" SourceId="1" SourceUrl="http://localhost:8731/Design_Time_Addresses/WcfServiceLibrary1/WheatherService/?xsd=xsd1" />
-    <MetadataFile FileName="item1.xsd" MetadataType="Schema" ID="5586ed83-a8c2-46b1-adb3-9079cfd3fede" SourceId="1" SourceUrl="http://localhost:8731/Design_Time_Addresses/WcfServiceLibrary1/WheatherService/?xsd=xsd2" />
-    <MetadataFile FileName="item.wsdl" MetadataType="Wsdl" ID="c549cd4b-10c5-4021-b6f9-39ddfb9ae464" SourceId="1" SourceUrl="http://localhost:8731/Design_Time_Addresses/WcfServiceLibrary1/WheatherService/?wsdl=wsdl0" />
-    <MetadataFile FileName="item.disco" MetadataType="Disco" ID="cbe04bf6-19c1-46b8-ab5f-9289bd968ac0" SourceId="1" SourceUrl="http://localhost:8731/Design_Time_Addresses/WcfServiceLibrary1/WheatherService/?disco" />
-    <MetadataFile FileName="item2.xsd" MetadataType="Schema" ID="637002df-b404-4e9f-9a6f-9ab89118f986" SourceId="1" SourceUrl="http://localhost:8731/Design_Time_Addresses/WcfServiceLibrary1/WheatherService/?xsd=xsd0" />
-    <MetadataFile FileName="WheatherService.wsdl" MetadataType="Wsdl" ID="a223c218-d77c-4a76-a6fd-1249f7868394" SourceId="1" SourceUrl="http://localhost:8731/Design_Time_Addresses/WcfServiceLibrary1/WheatherService/?wsdl" />
+    <MetadataFile FileName="item.xsd" MetadataType="Schema" ID="6e61b6ab-2b11-4da8-aa6e-0fc198288a92" SourceId="1" SourceUrl="http://localhost:8731/Design_Time_Addresses/WcfServiceLibrary1/WheatherService/?xsd=xsd1" />
+    <MetadataFile FileName="item1.xsd" MetadataType="Schema" ID="0200c55d-a9ea-4e8f-b3c9-aab293d6f48f" SourceId="1" SourceUrl="http://localhost:8731/Design_Time_Addresses/WcfServiceLibrary1/WheatherService/?xsd=xsd2" />
+    <MetadataFile FileName="item.wsdl" MetadataType="Wsdl" ID="83f3c46d-0af4-488d-a4b0-9bda8274060a" SourceId="1" SourceUrl="http://localhost:8731/Design_Time_Addresses/WcfServiceLibrary1/WheatherService/?wsdl=wsdl0" />
+    <MetadataFile FileName="item.disco" MetadataType="Disco" ID="8d7cc42c-3616-477b-805c-3cea03eec322" SourceId="1" SourceUrl="http://localhost:8731/Design_Time_Addresses/WcfServiceLibrary1/WheatherService/?disco" />
+    <MetadataFile FileName="item2.xsd" MetadataType="Schema" ID="fb9fafe0-225e-43b3-a949-2c4285fcc7eb" SourceId="1" SourceUrl="http://localhost:8731/Design_Time_Addresses/WcfServiceLibrary1/WheatherService/?xsd=xsd0" />
+    <MetadataFile FileName="WheatherService.wsdl" MetadataType="Wsdl" ID="59c836f9-ba6e-49c9-a3b1-5c9826c5d16e" SourceId="1" SourceUrl="http://localhost:8731/Design_Time_Addresses/WcfServiceLibrary1/WheatherService/?wsdl" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
